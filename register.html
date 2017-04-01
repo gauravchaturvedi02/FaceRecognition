@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Registration</title>
+    <script src="https://www.gstatic.com/firebasejs/3.7.4/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyB_l_8x_cq1r35IFcJcSawyH0GAC9dzQ1g",
+    authDomain: "challengerdeep-64f5f.firebaseapp.com",
+    databaseURL: "https://challengerdeep-64f5f.firebaseio.com",
+    storageBucket: "challengerdeep-64f5f.appspot.com",
+    messagingSenderId: "700337061213"
+  };
+  firebase.initializeApp(config);
+</script>
+     <script src="register.js">
+     </script>
+  </head>
+  <body>
+  <div class="container" id="form-container">
+    <h2>Register ur face</h2>
+    <select id ="category" >
+  <option value="">Choose a category</option>
+  <option value="security">Security</option>
+  <option value="emp">Employee</option>
+  <option value="visitor">Visitor</option>
+  <option value="criminal">Criminal</option>
+ </select>
+    <input type="form-control" name="name" id="name" value="" placeholder="Enter the name">
+<!--     <input type="form-control" name="class" id="des" placeholder="Enter the designation" style = "display:none">
+ -->
+    <button id="registerButton" class="btn btn-success" onclick = "registration()">Register</button>
+
+    </div>
+    <!--webcam testing-->
+   <div id="camdemo" style="width: 320px; height: 240px; text-align: center; margin: 0 auto;"></div>
+<br>
+<div style="text-align:center;">
+    <input type="button" id="start" value="Start / Shut down camera"/ onclick="startcam()">
+    <input type="button" id="savefile" value="Save photo in Desktop" onclick="savepic()"/>
+
+</div>
+</body>
+</html>
+
+
+     
+   
