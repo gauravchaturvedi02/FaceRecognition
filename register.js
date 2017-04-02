@@ -41,13 +41,13 @@ function registration(){
    }
    else if(cat=="visitor"){
     console.log(name);
-  firebaseRef.child("Visitor").child(name).set('V_0'+r);
+  firebaseRef.child("Visitor").child(name).child("Id").set('E_0'+r);
   pathname=pathname+"//Visitor//V_"+r;
   makedir(pathname);
   
    }
   else if(cat=="criminal"){
-  firebaseRef.child("Criminal").child(name).set('C_0'+r);
+  firebaseRef.child("Criminal").child(name).child("Id").set('E_0'+r);
   pathname=pathname+"//Criminal//C_"+r;
   makedir(pathname);
   
@@ -104,10 +104,10 @@ function processBase64Image(dataString) {
 
       return response;
 }
-
+var i=1;
 function savepic(){
-  var i=1;
- while(i<2){
+  
+ while(i<20){
      if(enabled){
             WebCamera.snap(function(data_uri) {
                 // Save the image in a variable
@@ -120,6 +120,10 @@ function savepic(){
                                console.log("Image saved succesfully");
                            }
                        });
+                if (i==10){
+                  setTimeout(savepic,3000);
+                }
+
                 //Start the save dialog to give a name to the file
                 // dialog.showSaveDialog({
                 //     filters: [
@@ -142,7 +146,8 @@ function savepic(){
                 //            }
                 //        });
                 // });
-             });i++;
+             })
+            i++;
      }
    else{
             alert("Please enable the camera first to take the snapshot !");
@@ -151,3 +156,5 @@ function savepic(){
    }
 
 }
+
+
